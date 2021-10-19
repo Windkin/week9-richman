@@ -25,15 +25,15 @@ const Demo = () => {
       <div style={styles.content}>
         <div style={styles.infoTextContainer}>
           <h1 style={{ fontSize: "40px", textAlign: 'center'}}>Home</h1>
-            <div class="container">
-            <div class="row text-center">
-              <div class="col, col-md">
+            <div className="container">
+            <div className="row text-center">
+              <div className="col, col-md">
                 <a href="/todo" style={{ fontSize: "20px", textDecoration: 'underline' }}>Add a todo!</a>
               </div>
-              <div class="col, col-md">  
+              <div className="col, col-md">  
                 <a href="/event" style={{ fontSize: "20px", textDecoration: 'underline' }}>Add an event!</a>
               </div>
-              <div class="col, col-md">  
+              <div className="col, col-md">  
                 <a href="/contacts" style={{ fontSize: "20px", textDecoration: 'underline' }}>Add a contact!</a>
               </div>
             </div>
