@@ -21,11 +21,23 @@ const Demo = () => {
   return (
     <div>
       <Header email={AuthUser.email} signOut={AuthUser.signOut} />
+      
       <div style={styles.content}>
         <div style={styles.infoTextContainer}>
-          <h3>Home</h3>
-          
-          <a href="/todo" style={{ fontSize: "40px", textDecoration: 'underline' }}>Add a todo!</a>
+          <h1 style={{ fontSize: "40px", textAlign: 'center'}}>Home</h1>
+            <div class="container">
+            <div class="row text-center">
+              <div class="col, col-md">
+                <a href="/todo" style={{ fontSize: "20px", textDecoration: 'underline' }}>Add a todo!</a>
+              </div>
+              <div class="col, col-md">  
+                <a href="/event" style={{ fontSize: "20px", textDecoration: 'underline' }}>Add an event!</a>
+              </div>
+              <div class="col, col-md">  
+                <a href="/contacts" style={{ fontSize: "20px", textDecoration: 'underline' }}>Add a contact!</a>
+              </div>
+            </div>
+            </div>
         </div>
        
       </div>
