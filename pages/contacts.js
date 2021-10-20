@@ -99,9 +99,7 @@ const Event = () => {
                     pointerEvents="none"
                     children={<AddIcon color="gray.300" />}
                 />
-                <Input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)} placeholder="Name" />
-                <Input type="text" value={inputPhone} onChange={(e) => setInputPhone(e.target.value)} placeholder="Phone Number" />
-                <Input type="text" value={inputEmail} onChange={(e) => setInputEmail(e.target.value)} placeholder="Email" />
+                <Input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)} placeholder="Contact Name" />
                 <Input type="date" value={inputDate} onChange={(e) => setInputDate(e.target.value)} placeholder="Event Title" />
                 <Button
                     ml={2}
