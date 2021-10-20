@@ -36,7 +36,7 @@ const Event = () => {
         AuthUser.id &&
             firebase
                 .firestore()
-                .collection("events")
+                .collection("todo")
                 .where( 'user', '==', AuthUser.id )
                 .onSnapshot(
                   snapshot => {
@@ -46,7 +46,6 @@ const Event = () => {
                           return {
                             eventID: doc.id,
                             eventName: doc.data().name,
-                            eventThing: doc.data().thing,
                             eventDate: doc.data().date.toDate().toDateString()
                           }  
                         }
@@ -61,16 +60,19 @@ const Event = () => {
             // try to update doc
             firebase
                 .firestore()
-                .collection("events") // all users will share one collection in this model
+                .collection("events") // each user will have their own collection
+                //.doc(input) // set the collection name to the input so that we can easily delete it later on
                 .add({
-                  name: inputName,
-                  date: firebase.firestore.Timestamp.fromDate( new Date(inputDate) ),
-                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                  user: AuthUser.id
+                    name: inputName,
+                    thing: inputThing,
+                    date: firebase.firestore.Timestamp.fromDate( new Date(inputDate) ),
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    user: AuthUser.id
                 })
                 .then(console.log('Data was successfully sent to cloud firestore!'));
-              setInputName('');
-              setInputDate('');
+            setInputName('');
+            setInputThing('');
+            setInputDate('');
         } catch (error) {
             console.log(error)
         }
@@ -158,4 +160,3 @@ export default withAuthUser({
     whenUnauthedAfterInit: AuthAction.REDIRECT_TO_LOGIN,
     whenUnauthedBeforeInit: AuthAction.REDIRECT_TO_LOGIN,
 })(Event)
-
