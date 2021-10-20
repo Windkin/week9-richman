@@ -25,14 +25,10 @@ import 'firebase/firestore'
 const Event = () => {
     const AuthUser = useAuthUser()
     const [inputName, setInputName] = useState('')
-    const [inputThing, setInputThing] = useState('')
     const [inputDate, setInputDate] = useState('')
     const [events, setEvents] = useState([])
 
-    // console.log(AuthUser)
-    // console.log(todos)
-
-   useEffect(() => {
+    useEffect(() => {
         AuthUser.id &&
             firebase
                 .firestore()
@@ -54,8 +50,7 @@ const Event = () => {
                     );
                 })
     })
-                          
-                        
+
     const sendData = () => {
         try {
             // try to update doc
@@ -104,16 +99,15 @@ const Event = () => {
                     pointerEvents="none"
                     children={<AddIcon color="gray.300" />}
                 />
-                
-                <Input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)} placeholder="Class" />
-                <Input type="text" value={inputThing} onChange={(e) => setInputThing(e.target.value)} placeholder="Homework" />
-                <Input type="date" value={inputDate} onChange={(e) => setInputDate(e.target.value)} placeholder="Event Date" />
-
+                <Input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)} placeholder="Name" />
+                <Input type="text" value={inputPhone} onChange={(e) => setInputPhone(e.target.value)} placeholder="Phone Number" />
+                <Input type="text" value={inputEmail} onChange={(e) => setInputEmail(e.target.value)} placeholder="Email" />
+                <Input type="date" value={inputDate} onChange={(e) => setInputDate(e.target.value)} placeholder="Event Title" />
                 <Button
-                    ml={4}
+                    ml={2}
                     onClick={() => sendData()}
                 >
-                    Add Todo
+                    Add
                 </Button>
             </InputGroup>
 
@@ -158,4 +152,3 @@ export default withAuthUser({
     whenUnauthedAfterInit: AuthAction.REDIRECT_TO_LOGIN,
     whenUnauthedBeforeInit: AuthAction.REDIRECT_TO_LOGIN,
 })(Event)
-

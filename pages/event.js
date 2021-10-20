@@ -42,6 +42,7 @@ const Event = () => {
                           return {
                             eventID: doc.id,
                             eventName: doc.data().name,
+                            eventThing: doc.data().thing,
                             eventDate: doc.data().date.toDate().toDateString()
                           }  
                         }
@@ -122,8 +123,9 @@ const Event = () => {
                         >
                             <Flex align="center">
                                 <Text fontSize="xl" mr={4}>{i + 1}.</Text>
-                                <Text>{item.eventName}</Text>
-                                <Text>... {item.eventDate}</Text>
+                                <Text>{item.eventName}&nbsp;</Text>
+                                <Text>{item.eventThing}&nbsp;</Text>
+                                <Text>{item.eventDate}</Text>
                             </Flex>
                             <IconButton onClick={() => deleteEvent(item.eventID)} icon={<DeleteIcon />} />
                         </Flex>
